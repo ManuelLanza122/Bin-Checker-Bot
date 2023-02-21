@@ -35,7 +35,7 @@ async def start(_, m: Message):
         ]
     )
     await m.reply_text(
-        f"Hi! {messy} \nI can Check bins Valid or Invalid.\n\nTo see more check /help command",
+        f"Holiiii! {messy} \nI  con este bot puede verificar si tu bin sirven .\n\n para mas ayuda  /help comandos",
         reply_markup=keyboard,
     )
 
@@ -43,14 +43,14 @@ async def start(_, m: Message):
 @Bot.on_message(filters.command("help"))
 async def help(_, m: Message):
     await m.reply_text(
-        "/start - **To check bot alive**.\n/help - **To see help menu.**\n/bin [qoury] - **To check Bin is valide or Invalid.**"
+        "/start - **Para verificar el bot vivo**.\n/help - **para comando help menu.**\n/bin [qoury] - **Verificar BiN es válido o inválido .**"
     )
 
 
 @Bot.on_message(filters.command("bin"))
 async def bin(_, m: Message):
     if len(m.command) < 2:
-        msg = await m.reply_text("Please Provide a Bin!\nEx:- `/bin 401658`")
+        msg = await m.reply_text(" Por favor proporcione el Bin!\nEx:- `/bin 401658`")
         await sleep(15)
         await msg.delete()
 
@@ -65,7 +65,7 @@ async def bin(_, m: Message):
 
             if res == False:
                 return await mafia.edit("❌ #INVALID_BIN ❌\n\nPlease provide a valid bin.")
-            da = req["data"]
+            da = req["dato"]
             bi = da["bin"]
             ve = da["vendor"]
             ty = da["type"]
@@ -87,6 +87,6 @@ async def bin(_, m: Message):
         except Exception as e:
             await bot.reply_text(f"**Oops Error!**\n{e}\n\n**Report This Bug to Bot Owner.**")
 
-print("Bot IS Alive Now")
+print("Bot está vivo ahora")
 
 Bot.run()
